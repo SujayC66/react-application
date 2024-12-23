@@ -5,7 +5,7 @@ function App() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        axios.get('https://app1213-fnesatgja9gxccav.canadacentral-01.azurewebsites.net//api/data')
+        axios.get('https://app1213-fnesatgja9gxccav.canadacentral-01.azurewebsites.net/api/data')
             .then(response => {
                 setData(response.data.message);
             })
