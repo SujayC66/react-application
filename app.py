@@ -1,14 +1,13 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build', static_url_path='')
 CORS(app)  # Allow cross-origin requests
-
-from flask import send_from_directory
 
 @app.route('/')
 def serve_react():
-    return send_from_directory('build', 'index.html')
+    return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
